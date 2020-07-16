@@ -379,15 +379,15 @@ var app = (function () {
     			button = element("button");
     			button.textContent = "test";
     			attr_dev(h1, "class", "svelte-1e9puaw");
-    			add_location(h1, file, 23, 2, 499);
-    			add_location(h2, file, 24, 2, 525);
-    			add_location(h3, file, 25, 2, 547);
+    			add_location(h1, file, 23, 2, 518);
+    			add_location(h2, file, 24, 2, 544);
+    			add_location(h3, file, 25, 2, 566);
     			attr_dev(a, "href", "https://svelte.dev/tutorial");
-    			add_location(a, file, 26, 15, 583);
-    			add_location(p, file, 26, 2, 570);
-    			add_location(button, file, 27, 2, 683);
+    			add_location(a, file, 26, 15, 602);
+    			add_location(p, file, 26, 2, 589);
+    			add_location(button, file, 27, 2, 702);
     			attr_dev(main, "class", "svelte-1e9puaw");
-    			add_location(main, file, 22, 0, 489);
+    			add_location(main, file, 22, 0, 508);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -452,7 +452,10 @@ var app = (function () {
     	let { message } = $$props;
 
     	onMount(async () => {
-    		let data = await (await fetch("/api", { headers: { mode: "no-cors" } })).json();
+    		let data = await (await fetch("/api", {
+    			headers: { "Access-Control-Allow-Origin": "*" }
+    		})).json();
+
     		$$invalidate(0, message = data.msg);
     		console.log("MESSAGE: ", message);
     	});

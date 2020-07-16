@@ -5,7 +5,7 @@
   onMount(async () => {
     let data = await (await fetch('/api', {
       headers: {
-        mode: 'no-cors'
+        'Access-Control-Allow-Origin': '*'
       }
     })).json()
     message = data.msg
