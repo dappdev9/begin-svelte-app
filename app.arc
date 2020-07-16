@@ -5,6 +5,7 @@ begin-app
 
 @http
 get /api
+get /test
 
 @tables
 data
